@@ -1,0 +1,109 @@
+
+<style>
+  body { margin: 0; }
+  .wrap { background: #0a0a0a; padding: 24px; border-radius: 16px; font-family: system-ui, sans-serif; max-width: 600px; margin: 0 auto; }
+  .header { margin-bottom: 20px; }
+  .title { font-size: 20px; font-weight: 500; color: #ffffff; margin: 0 0 4px; }
+  .sub { font-size: 12px; color: #888780; margin: 0; }
+  .cols { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 0; margin-bottom: 8px; padding: 0 12px; }
+  .col-label { font-size: 10px; color: #5F5E5A; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; }
+  .col-label:not(:first-child) { text-align: right; }
+  .row { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 0; align-items: center; padding: 10px 12px; border-radius: 10px; margin-bottom: 4px; }
+  .row:nth-child(1) { background: #1a1a1a; border: 1px solid #2a2a2a; }
+  .row:nth-child(n+2) { background: #111111; }
+  .rank { font-size: 11px; color: #5F5E5A; margin-right: 10px; min-width: 16px; display: inline-block; }
+  .name { font-size: 14px; color: #ffffff; font-weight: 500; }
+  .team { font-size: 11px; color: #5F5E5A; margin-top: 1px; }
+  .val { font-size: 13px; text-align: right; font-weight: 500; }
+  .war-val { color: #1D9E75; }
+  .sal-val { color: #B5D4F4; }
+  .wpd-val { color: #EF9F27; }
+  .badge { display: inline-block; background: #1D9E75; color: #04342C; font-size: 9px; font-weight: 500; padding: 2px 6px; border-radius: 4px; margin-left: 6px; vertical-align: middle; }
+  .footer { margin-top: 16px; font-size: 10px; color: #444441; text-align: right; }
+</style>
+
+<div class="wrap">
+  <div class="header">
+    <p class="title">MLB's 10 most underpaid players — 2025</p>
+    <p class="sub">Minimum $1M salary · Ranked by WAR per dollar · Data: Baseball Reference / Spotrac</p>
+  </div>
+
+  <div class="cols">
+    <div class="col-label">Player</div>
+    <div class="col-label">WAR</div>
+    <div class="col-label">Salary</div>
+    <div class="col-label">WAR/$M</div>
+  </div>
+
+  <div class="row">
+    <div><span class="rank">1</span><span class="name">Geraldo Perdomo <span class="badge">Best value</span></span><div class="team" style="margin-left:26px">ARI · SS</div></div>
+    <div class="val war-val">7.1</div>
+    <div class="val sal-val">$2.6M</div>
+    <div class="val wpd-val">2.73</div>
+  </div>
+
+  <div class="row">
+    <div><span class="rank">2</span><span class="name">Garrett Crochet</span><div class="team" style="margin-left:26px">BOS · LHP</div></div>
+    <div class="val war-val">5.8</div>
+    <div class="val sal-val">$3.8M</div>
+    <div class="val wpd-val">1.53</div>
+  </div>
+
+  <div class="row">
+    <div><span class="rank">3</span><span class="name">Zach McKinstry</span><div class="team" style="margin-left:26px">DET · UT</div></div>
+    <div class="val war-val">3.2</div>
+    <div class="val sal-val">$1.7M</div>
+    <div class="val wpd-val">1.94</div>
+  </div>
+
+  <div class="row">
+    <div><span class="rank">4</span><span class="name">Ernie Clement</span><div class="team" style="margin-left:26px">TOR · UT</div></div>
+    <div class="val war-val">3.2</div>
+    <div class="val sal-val">$2.0M</div>
+    <div class="val wpd-val">1.62</div>
+  </div>
+
+  <div class="row">
+    <div><span class="rank">5</span><span class="name">Nick Lodolo</span><div class="team" style="margin-left:26px">CIN · LHP</div></div>
+    <div class="val war-val">2.8</div>
+    <div class="val sal-val">$2.0M</div>
+    <div class="val wpd-val">1.42</div>
+  </div>
+
+  <div class="row">
+    <div><span class="rank">6</span><span class="name">Trevor Rogers</span><div class="team" style="margin-left:26px">BAL · LHP</div></div>
+    <div class="val war-val">3.3</div>
+    <div class="val sal-val">$2.6M</div>
+    <div class="val wpd-val">1.27</div>
+  </div>
+
+  <div class="row">
+    <div><span class="rank">7</span><span class="name">Shane Baz</span><div class="team" style="margin-left:26px">TBR · RHP</div></div>
+    <div class="val war-val">2.0</div>
+    <div class="val sal-val">$1.5M</div>
+    <div class="val wpd-val">1.38</div>
+  </div>
+
+  <div class="row">
+    <div><span class="rank">8</span><span class="name">Steven Okert</span><div class="team" style="margin-left:26px">HOU · LHP</div></div>
+    <div class="val war-val">1.6</div>
+    <div class="val sal-val">$1.2M</div>
+    <div class="val wpd-val">1.33</div>
+  </div>
+
+  <div class="row">
+    <div><span class="rank">9</span><span class="name">Will Vest</span><div class="team" style="margin-left:26px">DET · RHP</div></div>
+    <div class="val war-val">1.8</div>
+    <div class="val sal-val">$1.4M</div>
+    <div class="val wpd-val">1.29</div>
+  </div>
+
+  <div class="row">
+    <div><span class="rank">10</span><span class="name">Shawn Armstrong</span><div class="team" style="margin-left:26px">TBR · RHP</div></div>
+    <div class="val war-val">1.4</div>
+    <div class="val sal-val">$1.1M</div>
+    <div class="val wpd-val">1.24</div>
+  </div>
+
+  <div class="footer">WAR per $M = Total WAR ÷ Average Annual Salary (millions)</div>
+</div>

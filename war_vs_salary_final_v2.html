@@ -1,0 +1,86 @@
+
+<h2 class="sr-only">Scatter plot of 802 MLB players showing average annual salary vs total WAR for 2025. True outliers are labeled.</h2>
+<div style="background:#0a0a0a; border-radius:16px; padding:24px;">
+  <p style="color:#fff; font-size:18px; font-weight:500; margin:0 0 4px;">MLB salary vs. WAR — 2025</p>
+  <p style="color:#5F5E5A; font-size:11px; margin:0 0 16px;">Average Annual Value vs. Total WAR · 802 players · Baseball Reference / Spotrac</p>
+  <div style="position:relative; width:100%; height:500px;">
+    <canvas id="c" role="img" aria-label="Scatter plot of 802 MLB players. Shohei Ohtani earns $70M with 9.4 WAR. Aaron Judge earns $40M with 10.1 WAR. Cal Raleigh earns $17.5M with 9.1 WAR.">MLB WAR vs Salary 2025</canvas>
+  </div>
+  <p style="color:#444441; font-size:10px; text-align:right; margin:8px 0 0;">WAR = Wins Above Replacement · AAV = Average Annual Value of contract</p>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const all = [{"n":"Aaron Judge","s":40000000.0,"w":10.1},{"n":"Shohei Ohtani","s":70000000.0,"w":9.4},{"n":"Cal Raleigh","s":17500000.0,"w":9.1},{"n":"Bobby Witt Jr.","s":26252525.0,"w":8.0},{"n":"Geraldo Perdomo","s":2550000.0,"w":7.1},{"n":"Trea Turner","s":27272727.0,"w":6.7},{"n":"Tarik Skubal","s":10150000.0,"w":6.6},{"n":"Corbin Carroll","s":13875000.0,"w":6.5},{"n":"Paul Skenes","s":875000.0,"w":6.5},{"n":"Francisco Lindor","s":34100000.0,"w":6.3},{"n":"Fernando Tatis Jr.","s":24285714.29,"w":6.1},{"n":"Juan Soto","s":51000000.0,"w":5.8},{"n":"Garrett Crochet","s":3800000.0,"w":5.8},{"n":"Maikel Garcia","s":774750.0,"w":5.6},{"n":"Logan Webb","s":18000000.0,"w":5.5},{"n":"Pete Crow-Armstrong","s":771000.0,"w":5.4},{"n":"George Springer","s":25000000.0,"w":5.2},{"n":"Byron Buxton","s":14285714.29,"w":5.0},{"n":"Yoshinobu Yamamoto","s":27083333.0,"w":5.0},{"n":"Kyle Schwarber","s":19750000.0,"w":4.9},{"n":"Cody Bellinger","s":26666667.0,"w":4.9},{"n":"Nico Hoerner","s":11666667.0,"w":4.8},{"n":"Gunnar Henderson","s":782300.0,"w":4.8},{"n":"Max Fried","s":27250000.0,"w":4.8},{"n":"Matt Olson","s":21000000.0,"w":4.7},{"n":"Alejandro Kirk","s":4600000.0,"w":4.7},{"n":"Ketel Marte","s":15200000.0,"w":4.6},{"n":"Hunter Brown","s":807400.0,"w":4.6},{"n":"Junior Caminero","s":764100.0,"w":4.6},{"n":"Kyle Tucker","s":16500000.0,"w":4.5},{"n":"Brice Turang","s":777100.0,"w":4.4},{"n":"Jazz Chisholm Jr.","s":5850000.0,"w":4.4},{"n":"Elly De La Cruz","s":770000.0,"w":4.3},{"n":"Will Smith","s":14000000.0,"w":4.1},{"n":"Kevin Gausman","s":22000000.0,"w":4.1},{"n":"Wyatt Langford","s":773500.0,"w":4.1},{"n":"Andy Pages","s":770000.0,"w":4.1},{"n":"Dillon Dingler","s":762600.0,"w":4.1},{"n":"Willy Adames","s":26000000.0,"w":4.1},{"n":"Zack Wheeler","s":42000000.0,"w":4.0},{"n":"Ranger Suarez","s":8800000.0,"w":4.0},{"n":"Framber Valdez","s":18000000.0,"w":4.0},{"n":"Corey Seager","s":32500000.0,"w":4.0},{"n":"Kyle Stowers","s":768200.0,"w":4.0},{"n":"Shea Langeliers","s":770000.0,"w":3.9},{"n":"Andrew Abbott","s":770000.0,"w":3.9},{"n":"Jarren Duran","s":3750000.0,"w":3.9},{"n":"Vladimir Guerrero Jr.","s":28500000.0,"w":3.9},{"n":"Bo Bichette","s":11200000.0,"w":3.8},{"n":"Freddie Freeman","s":27000000.0,"w":3.8},{"n":"Ceddanne Rafaela","s":6250000.0,"w":3.8},{"n":"Manny Machado","s":31818182.0,"w":3.8},{"n":"Nathan Eovaldi","s":25000000.0,"w":3.7},{"n":"Matt Chapman","s":25166667.0,"w":3.7},{"n":"Nick Pivetta","s":13750000.0,"w":3.7},{"n":"William Contreras","s":6000000.0,"w":3.6},{"n":"Michael Wacha","s":17000000.0,"w":3.6},{"n":"Freddy Peralta","s":8000000.0,"w":3.6},{"n":"Bryan Woo","s":783300.0,"w":3.6},{"n":"Chris Sale","s":18000000.0,"w":3.6},{"n":"Pete Alonso","s":27000000.0,"w":3.6},{"n":"Sal Frelick","s":771800.0,"w":3.6},{"n":"Sonny Gray","s":25000000.0,"w":3.6},{"n":"Alex Bregman","s":40000000.0,"w":3.5},{"n":"Masyn Winn","s":770850.0,"w":3.5},{"n":"Michael Busch","s":780500.0,"w":3.5},{"n":"Bryce Harper","s":25384615.38,"w":3.5},{"n":"Mookie Betts","s":30416666.67,"w":3.4},{"n":"Dylan Cease","s":13750000.0,"w":3.4},{"n":"Hunter Goodman","s":765000.0,"w":3.4},{"n":"Jacob Wilson","s":760000.0,"w":3.4},{"n":"Jacob deGrom","s":37000000.0,"w":3.4},{"n":"Tyler Soderstrom","s":765000.0,"w":3.4},{"n":"Dansby Swanson","s":25285714.0,"w":3.3},{"n":"Kris Bubic","s":3000000.0,"w":3.3},{"n":"Rafael Devers","s":31350000.0,"w":3.3},{"n":"Trevor Rogers","s":2600000.0,"w":3.3},{"n":"James Wood","s":764600.0,"w":3.2},{"n":"Xander Bogaerts","s":25454545.0,"w":3.2},{"n":"Patrick Bailey","s":780000.0,"w":3.2},{"n":"Ernie Clement","s":1975000.0,"w":3.2},{"n":"Harrison Bader","s":4750000.0,"w":3.2},{"n":"Steven Kwan","s":4175000.0,"w":3.2},{"n":"Zach McKinstry","s":1650000.0,"w":3.2},{"n":"Trent Grisham","s":5000000.0,"w":3.2},{"n":"CJ Abrams","s":780600.0,"w":3.1},{"n":"Josh Naylor","s":10900000.0,"w":3.1},{"n":"Zach Neto","s":780000.0,"w":3.1},{"n":"David Peterson","s":4625000.0,"w":3.1},{"n":"Drake Baldwin","s":760000.0,"w":3.1},{"n":"Joe Ryan","s":3000000.0,"w":3.1},{"n":"Merrill Kelly","s":8000000.0,"w":3.1},{"n":"Bryson Stott","s":3200000.0,"w":3.1},{"n":"Austin Wells","s":801400.0,"w":3.0},{"n":"Ben Rice","s":782800.0,"w":3.0},{"n":"Trevor Story","s":23333333.33,"w":3.0},{"n":"Jackson Merrill","s":809500.0,"w":3.0},{"n":"Ryan O'Hearn","s":8000000.0,"w":3.0},{"n":"Brandon Nimmo","s":20250000.0,"w":3.0},{"n":"Max Muncy","s":12000000.0,"w":2.9},{"n":"Jackson Chourio","s":10250000.0,"w":2.9},{"n":"Taylor Ward","s":7825000.0,"w":2.9},{"n":"Riley Greene","s":812400.0,"w":2.9},{"n":"Jake Cronenworth","s":11428571.0,"w":2.9},{"n":"Hunter Greene","s":8833333.0,"w":2.9},{"n":"Randy Arozarena","s":11300000.0,"w":2.9},{"n":"MacKenzie Gore","s":2890000.0,"w":2.9},{"n":"Brady Singer","s":8750000.0,"w":2.9},{"n":"TJ Friedl","s":780000.0,"w":2.9},{"n":"Brendan Donovan","s":2850000.0,"w":2.9},{"n":"J.P. Crawford","s":10200000.0,"w":2.8},{"n":"Nick Lodolo","s":1975000.0,"w":2.8},{"n":"Ian Happ","s":20333333.0,"w":2.8},{"n":"Willson Contreras","s":17500000.0,"w":2.8},{"n":"Cade Smith","s":785100.0,"w":2.7},{"n":"Gabriel Moreno","s":793000.0,"w":2.7},{"n":"Carson Kelly","s":5750000.0,"w":2.6},{"n":"Aroldis Chapman","s":10750000.0,"w":2.6},{"n":"Jorge Polanco","s":7000000.0,"w":2.6},{"n":"Luis Castillo","s":21600000.0,"w":2.6},{"n":"Carlos Correa","s":33333333.0,"w":2.6},{"n":"Seiya Suzuki","s":17000000.0,"w":2.6},{"n":"Gleyber Torres","s":15000000.0,"w":2.6},{"n":"Dean Kremer","s":2950000.0,"w":2.6},{"n":"Logan Gilbert","s":7625000.0,"w":2.6},{"n":"Drew Rasmussen","s":4250000.0,"w":2.5},{"n":"Jack Flaherty","s":17500000.0,"w":2.5},{"n":"Luis Severino","s":22333333.0,"w":2.5},{"n":"Clayton Kershaw","s":7500000.0,"w":2.5},{"n":"Mitch Keller","s":15400000.0,"w":2.5},{"n":"Yusei Kikuchi","s":21000000.0,"w":2.5},{"n":"Kyle Freeland","s":12900000.0,"w":2.5},{"n":"Christian Yelich","s":23888888.89,"w":2.4},{"n":"Isaac Paredes","s":6625000.0,"w":2.4},{"n":"Chris Bassitt","s":21000000.0,"w":2.4},{"n":"Brent Rooker","s":12000000.0,"w":2.4},{"n":"George Kirby","s":4300000.0,"w":2.4},{"n":"Casey Mize","s":2340000.0,"w":2.4},{"n":"Justin Verlander","s":15000000.0,"w":2.2},{"n":"Robbie Ray","s":23000000.0,"w":2.2},{"n":"Jose Altuve","s":25000000.0,"w":2.1},{"n":"Marcus Semien","s":25000000.0,"w":2.1},{"n":"Jeff McNeil","s":12500000.0,"w":2.1},{"n":"Nick Martinez","s":21050000.0,"w":2.1},{"n":"Giancarlo Stanton","s":25000000.0,"w":1.9},{"n":"Mike Trout","s":35541666.67,"w":1.8},{"n":"Blake Snell","s":36400000.0,"w":1.9},{"n":"Austin Riley","s":21200000.0,"w":1.7},{"n":"Kris Bryant","s":26000000.0,"w":-0.5},{"n":"Anthony Santander","s":18500000.0,"w":-0.9},{"n":"Chad Green","s":10500000.0,"w":-0.9},{"n":"Joc Pederson","s":18500000.0,"w":-0.8},{"n":"Nick Castellanos","s":20000000.0,"w":-0.6},{"n":"Jeimer Candelario","s":15000000.0,"w":-0.7},{"n":"Michael Conforto","s":17000000.0,"w":-0.6},{"n":"Jon Gray","s":14000000.0,"w":-0.4},{"n":"Jeff Hoffman","s":11000000.0,"w":-0.4},{"n":"Nathaniel Lowe","s":10300000.0,"w":-0.3},{"n":"Walker Buehler","s":18050000.0,"w":-0.3},{"n":"Tyler O'Neill","s":16500000.0,"w":-0.3},{"n":"Jorge Soler","s":14000000.0,"w":-0.3},{"n":"Ryan Pressly","s":14100000.0,"w":-0.3},{"n":"Max Muncy","s":12000000.0,"w":-0.4},{"n":"Nestor Cortes","s":7600000.0,"w":-0.9},{"n":"Hunter Renfroe","s":6500000.0,"w":-0.9},{"n":"Keibert Ruiz","s":6250000.0,"w":-1.0},{"n":"Josh Rojas","s":3500000.0,"w":-1.3},{"n":"Jacob Stallings","s":2000000.0,"w":-1.4},{"n":"Michael Toglia","s":765000.0,"w":-2.2},{"n":"Jordan Walker","s":770800.0,"w":-1.2},{"n":"Heston Kjerstad","s":764000.0,"w":-1.1},{"n":"Kyle Farmer","s":2500000.0,"w":-1.1},{"n":"Jhonkensy Noel","s":766900.0,"w":-1.1},{"n":"LaMonte Wade Jr.","s":4500000.0,"w":-1.6},{"n":"Jac Caglianone","s":765000.0,"w":-1.6}];
+
+const labelThese = new Set(["Aaron Judge","Shohei Ohtani","Cal Raleigh","Juan Soto","Geraldo Perdomo","Michael Toglia","Zack Wheeler"]);
+
+const labelPlugin = {
+  id:"lp",
+  afterDatasetsDraw(chart){
+    const {ctx,scales}=chart;
+    ctx.save();
+    ctx.font="500 10px system-ui,sans-serif";
+    all.forEach(p=>{
+      if(!labelThese.has(p.n)) return;
+      const x=scales.x.getPixelForValue(p.s);
+      const y=scales.y.getPixelForValue(p.w);
+      let tx=x+7, ty=y-8;
+      if(p.n==="Shohei Ohtani"){tx=x-88;ty=y-8;}
+      if(p.n==="Juan Soto"){tx=x+7;ty=y+14;}
+      if(p.n==="Michael Toglia"){tx=x+7;ty=y+14;}
+      if(p.n==="Cal Raleigh"){tx=x+7;ty=y-8;}
+      ctx.strokeStyle="#0a0a0a";
+      ctx.lineWidth=3;
+      ctx.strokeText(p.n,tx,ty);
+      ctx.fillStyle="#ffffff";
+      ctx.fillText(p.n,tx,ty);
+    });
+    ctx.restore();
+  }
+};
+
+new Chart(document.getElementById("c"),{
+  type:"scatter",
+  data:{datasets:[{
+    data:all.map(p=>({x:p.s,y:p.w,name:p.n})),
+    pointBackgroundColor:"rgba(255,255,255,0.7)",
+    pointBorderColor:"rgba(255,255,255,0.0)",
+    pointRadius:2.5,
+    pointHoverRadius:5,
+  }]},
+  options:{
+    responsive:true,
+    maintainAspectRatio:false,
+    layout:{padding:{top:20,right:100,bottom:8,left:8}},
+    plugins:{
+      legend:{display:false},
+      tooltip:{
+        backgroundColor:"#1a1a1a",
+        titleColor:"#fff",
+        bodyColor:"#888",
+        callbacks:{
+          title:c=>c[0].raw.name,
+          label:c=>"$"+(c.raw.x/1000000).toFixed(1)+"M AAV · "+c.raw.y+" WAR"
+        }
+      }
+    },
+    scales:{
+      x:{
+        title:{display:true,text:"Average Annual Value (AAV)",color:"#5F5E5A",font:{size:11}},
+        ticks:{color:"#5F5E5A",font:{size:10},callback:v=>"$"+(v/1000000).toFixed(0)+"M"},
+        grid:{color:"rgba(255,255,255,0.04)"},
+        border:{color:"rgba(255,255,255,0.08)"},
+        min:-500000,max:78000000
+      },
+      y:{
+        title:{display:true,text:"Total WAR",color:"#5F5E5A",font:{size:11}},
+        ticks:{color:"#5F5E5A",font:{size:10}},
+        grid:{color:"rgba(255,255,255,0.04)"},
+        border:{color:"rgba(255,255,255,0.08)"},
+        min:-2.8,max:11.5
+      }
+    }
+  },
+  plugins:[labelPlugin]
+});
+</script>
